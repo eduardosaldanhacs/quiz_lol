@@ -2,7 +2,7 @@
 
     <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="col-4 text-center">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-8 col-8 text-center">
                 <form action="{{ route('prepare_name') }}" method="post">
 
                     @csrf
