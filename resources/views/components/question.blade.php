@@ -3,5 +3,5 @@
 </div>
 
 <div class="text-center fs-3 mb-3">
-    De qual região é esse(a) campeão: {{ $champion }} 
+    De qual região é esse(a) campeão: <span class="text-info">{{ $champion }} </span>
 </div>
