@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // start game
 Route::get('/', [MainController::class, 'startGame'])->name('start_game');
-Route::post('/', [MainController::class, 'prepareGame'])->name('prepare_name');
+Route::post('/prepare', [MainController::class, 'prepareGame'])->name('prepare_game');
 
 // in game
 Route::get('/game', [MainController::class, 'game'])->name('game');
@@ -14,3 +14,4 @@ Route::get('/next_question', [MainController::class, 'nextQuestion'])->name('nex
 
 // game over
 Route::get('/show_results', [MainController::class, 'showResults'])->name('show_results');
+

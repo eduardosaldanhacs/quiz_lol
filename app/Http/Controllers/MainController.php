@@ -51,16 +51,18 @@ class MainController extends Controller
             'wrong_answers' => 0
         ]);
 
-        return redirect()->route('game');
+        // return redirect()->route('game');
+        return view('loading')->with('url', route('game'));
+
     }
 
     private function prepareQuiz($total_questions)
     {
         $questions = [];
-        $total_countries = count($this->app_data);
+        $total_champions = count($this->app_data);
 
-        // create countries index for unique questions
-        $indexes = range(0, $total_countries - 1);
+        // create champions index for unique questions
+        $indexes = range(0, $total_champions - 1);
         shuffle($indexes);
         $indexes = array_slice($indexes, 0, $total_questions);
 
@@ -116,7 +118,8 @@ class MainController extends Controller
         try {
             $answer = Crypt::decryptString($enc_answer);
         } catch (\Exception $e) {
-            return redirect()->route('game');
+            //return redirect()->route('game');
+            return view('loading')->with('url', route('game'));
         }
 
         // game logic
@@ -162,11 +165,13 @@ class MainController extends Controller
         if($current_question < $total_questions){
             $current_question++;
             session()->put('current_question', $current_question);
-            return redirect()->route('game');
+            // return redirect()->route('game');
+            return view('loading')->with('url', route('game'));
         } else {
 
             /// game over
-            return redirect()->route('show_results');
+            // return redirect()->route('show_results');
+            return view('loading')->with('url', route('show_results'));
         }
     }
 

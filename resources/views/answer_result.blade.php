@@ -1,4 +1,4 @@
-<x-main-layout pageTitle="Countries & regions Quiz">
+<x-main-layout pageTitle="LOL - Quiz">
 
     <div class="container">
 
