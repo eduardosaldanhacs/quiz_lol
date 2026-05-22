@@ -16,9 +16,15 @@ class MainController extends Controller
         $this->app_data = require(app_path('app_data.php'));
     }
 
-    public function startGame(): View
+    public function startGame()
     {
-        return view('home');
+        session()->regenerateToken();
+
+        return response()
+            ->view('home')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', 'Sat, 01 Jan 2000 00:00:00 GMT');
     }
 
     public function prepareGame(Request $request)
